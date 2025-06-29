@@ -10,22 +10,21 @@ sudo airflow dags trigger breast_cancer_pipeline
 
 ## Назначение скриптов
 
-breast_cancer_etl/
-├── dags/
-│   └── cancer_pipeline.py (Основное описание DAG-файла)
-├── etl/
-│   ├── load_data.py (загрузка данных)
-│   ├── preprocess.py (пред-обработка)
-│   ├── train_model.py (обучение модели)
-│   ├── evaluate.py (оценка модели)
-│   └── save_results.py (сохранение результатов)
-├── results/
-│   ├── metrics.json (результаты)
-│   └── model.pkl
-├── logs/
-├── config.py (пути)
-├── requirements.txt (зависимости)
-└── README.md
+- **dags/**: Папка для DAG-файлов Airflow  
+  - `cancer_pipeline.py` - основной сценарий оркестрации ETL
+- **etl/**: Скрипты этапов обработки данных
+  - `load_data.py` - загрузка исходных данных
+  - `preprocess.py` - очистка и преобразование данных
+  - `train_model.py` - обучение ML-модели
+  - `evaluate.py` - валидация модели
+  - `save_results.py` - сохранение артефактов
+- **results/**: Результаты работы
+  - `metrics.json` - метрики качества модели
+  - `model.pkl` - сериализованная модель
+- **logs/**: Директория для лог-файлов
+- **config.py**: Конфигурационные параметры (пути, настройки)
+- **requirements.txt**: Зависимости Python
+- **README.md**: Документация проекта
 
 ## Описание проекта
 Автоматизированный ETL-пайплайн для прогнозирования рака молочной железы с использованием набора данных Breast Cancer Wisconsin Diagnostic. Пайплайн включает загрузку данных, предобработку, обучение модели, оценку качества и сохранение результатов.
